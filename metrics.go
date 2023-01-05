@@ -1,20 +1,25 @@
 package nomad
 
 import (
-	"sync"
-
 	"github.com/coredns/coredns/plugin"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
 
-// requestCount exports a prometheus metric that is incremented every time a query is seen by the example plugin.
-var requestCount = promauto.NewCounterVec(prometheus.CounterOpts{
-	Namespace: plugin.Namespace,
-	Subsystem: "example",
-	Name:      "request_count_total",
-	Help:      "Counter of requests made.",
-}, []string{"server"})
-
-var once sync.Once
+var (
+	// requestSuccessCount is the number of DNS requests handled succesfully.
+	requestSuccessCount = promauto.NewCounterVec(prometheus.CounterOpts{
+		Namespace: plugin.Namespace,
+		Subsystem: pluginName,
+		Name:      "success_requests_total",
+		Help:      "Counter of DNS requests handled successfully.",
+	}, []string{"server", "namespace"})
+	// requestFailedCount is the number of DNS requests that failed.
+	requestFailedCount = promauto.NewCounterVec(prometheus.CounterOpts{
+		Namespace: plugin.Namespace,
+		Subsystem: pluginName,
+		Name:      "failed_requests_total",
+		Help:      "Counter of DNS requests failed.",
+	}, []string{"server", "namespace"})
+)

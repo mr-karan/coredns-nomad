@@ -1,0 +1,12 @@
+nomad:1053 {
+    errors
+    debug
+    health
+    log
+    nomad {
+	  	address http://127.0.0.1:4646
+        ttl 10
+    }
+    prometheus :9153
+    cache 30
+}
