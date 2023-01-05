@@ -70,7 +70,7 @@ Enable nomad with and resolve all services with `.nomad` as the suffix. `cache` 
 ```
 nomad:1053 {
     nomad {
-	  	address http://127.0.0.1:4646
+        address http://127.0.0.1:4646
     }
     cache 30
 }
