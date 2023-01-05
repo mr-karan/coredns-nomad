@@ -1,3 +1,5 @@
+<a href="https://zerodha.tech"><img src="https://zerodha.tech/static/images/github-badge.svg" align="right" /></a>
+
 # nomad
 
 ## Name
@@ -8,7 +10,7 @@
 
 The nomad plugin serves DNS records for services registered with Nomad. Nomad 1.3+ comes with [support for discovering services](https://www.hashicorp.com/blog/nomad-service-discovery) with an in-built service catalogue that is available via the HTTP API. This plugin extends the HTTP API and provides a DNS interface for querying the service catalogue.
 
-The query can be looked up with the format `service.namespace.nomad`. The plugin currently handles A, AAAA and SRV records. Refer to [#Usage Example](#usage-example) for more details.
+The query can be looked up with the format `service.namespace.nomad`. The plugin currently handles A, AAAA and SRV records. Refer to [Usage](#usage-example) for more details.
 
 ## Compilation
 
