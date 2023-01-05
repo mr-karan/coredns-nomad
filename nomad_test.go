@@ -90,10 +90,10 @@ func TestNomad(t *testing.T) {
 	}
 	demoNomad.client = client
 
-	runTests(t, ctx, &demoNomad, cases)
+	runTests(ctx, t, &demoNomad, cases)
 }
 
-func runTests(t *testing.T, ctx context.Context, n *Nomad, cases []test.Case) {
+func runTests(ctx context.Context, t *testing.T, n *Nomad, cases []test.Case) {
 	for i, tc := range cases {
 		r := tc.Msg()
 		w := dnstest.NewRecorder(&test.ResponseWriter{})
